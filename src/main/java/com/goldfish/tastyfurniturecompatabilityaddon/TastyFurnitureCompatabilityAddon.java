@@ -1,5 +1,7 @@
 package com.goldfish.tastyfurniturecompatabilityaddon;
 
+import com.goldfish.tastyfurniturecompatabilityaddon.registry.compatTastyBlockRegistry;
+
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -46,6 +48,7 @@ public class TastyFurnitureCompatabilityAddon
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+    public static final DeferredRegister.Blocks COMPATTASTYBLOCKREGISTRY = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
@@ -76,6 +79,7 @@ public class TastyFurnitureCompatabilityAddon
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
+        compatTastyBlockRegistry.COMPATTASTYBLOCKREGISTRY.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
