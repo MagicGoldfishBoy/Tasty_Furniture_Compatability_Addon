@@ -1,5 +1,6 @@
 package com.goldfish.tastyfurniturecompatabilityaddon;
 
+import com.goldfish.tastyfurniturecompatabilityaddon.datagen.GM3Datagen;
 import com.goldfish.tastyfurniturecompatabilityaddon.registry.compatTastyBlockRegistry;
 
 import org.slf4j.Logger;
@@ -89,7 +90,7 @@ public class TastyFurnitureCompatabilityAddon
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
+        modEventBus.addListener(GM3Datagen::gatherData);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
